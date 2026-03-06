@@ -1,6 +1,10 @@
 <?php
 require "connect.php";
-$sql = "SELECT * FROM customer";
+// $sql = "SELECT * FROM customer";
+$sql = "SELECT customer.CustomerID , customer.Name , customer.Email , country.CountryName
+        FROM customer , country
+        WHERE customer.CountryCode = country.CountryCode 
+        AND country.CountryName LIKE 'ไท%'; ";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -20,18 +24,18 @@ $stmt->execute();
             <th width="140">
                 <div align="center">ชื่อ</div>
             </th>
-            <th width="120">
+            <!-- <th width="120">
                 <div align="center">วันเกิด</div>
-            </th>
+            </th> -->
             <th width="100">
-                <div align="center">อีีเมล</div>
+                <div align="center">อีเมล</div>
             </th>
             <th width="50">
                 <div align="center">ประเทศ</div>
             </th>
-            <th width="70">
+            <!-- <th width="70">
                 <div align="center">ยอดหนี้</div>
-            </th>
+            </th> -->
         </tr>
 
         <?php
@@ -48,18 +52,18 @@ $stmt->execute();
                     <?php echo $result["Name"]; ?>
                 </td>
 
-                <td>
+                <!-- <td>
                     <?php echo $result["Birthdate"]; ?>
-                </td>
+                </td> -->
                 <td>
                     <?php echo $result["Email"]; ?>
                 </td>
                 <td>
-                    <?php echo $result["CountryCode"]; ?>
+                    <?php echo $result["CountryName"]; ?>
                 </td>
-                <td>
+                <!-- <td>
                     <?php echo $result["OutstandingDebt"]; ?>
-                </td>
+                </td> -->
             </tr>
         <?php
         }

@@ -27,10 +27,10 @@
             <th width="130">Name</th>
             <td><?php echo $result["Name"] ?></td>
         </tr>
-        <tr>
+        <!-- <tr>
             <th width="130">BirthDay</th>
             <td><?php echo $result["Birthdate"] ?></td>
-        </tr>
+        </tr> -->
         <tr>
             <th width="130">Email</th>
             <td><?php echo $result["Email"] ?></td>
@@ -39,10 +39,10 @@
             <th width="130">CountryCode</th>
             <td><?php echo $result["CountryCode"] ?></td>
         </tr>
-        <tr>
+        <!-- <tr>
             <th width="130">OutstandingDebt</th>
             <td><?php echo $result["OutstandingDebt"] ?></td>
-        </tr>
+        </tr> -->
     </table>
     <?php
     $conn = null;
